@@ -18,6 +18,10 @@ ui <- dashboardPage( skin = "black",
       tabItem(tabName = "dashboard",
               h2("Flow Sample Data"),
               tags$br(),
+              h4("Purpose: Modify and Explore Flow Sample Data"),
+              h4("This is an app that helps you explore the Flow Sample data set from Datateachr. 
+                 This app includes a histogram that filters the count over each season by day, year, and by extreme type. "),
+              tags$br(),
               h4("For Assignment B4, I included several features that will be useful for the user.
                  First, I created slider to specify the day of the month that the user is interested in.
                  Second, I input radio buttons for the user to choose by extreme type. 

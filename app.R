@@ -20,8 +20,12 @@ ui <- dashboardPage( skin = "black",
               h2("Flow Sample Data"),
       fluidRow(
       column(width = 12,
-             box(sliderInput("id_slider", "Select a day", min = 1, max = 31,
-                  value = c(2,10))),
+             box(sliderInput("id_slider3", "Select a year", min = 1909, max = 2018,
+                             value = c(1919,2017))),
+             box(sliderInput("id_slider", "Select a day of month", min = 1, max = 31,
+                  value = c(2,30))),
+             box(sliderInput("id_slider2", "Select a flow", min = 1, max = 467,
+                             value = c(2,400))),
       box(radioButtons(
         "my_radio", "select extreme type.",
         choices = unique(flow_sample$extreme_type))
@@ -49,8 +53,13 @@ server <- function(input, output) {
   
   flow_sample_filtered <- reactive({
     flow_sample %>%
-    filter(day < input$id_slider[2],
+    filter(
+      year < input$id_slider3[2],
+      year > input$id_slider3[1],
+      day < input$id_slider[2],
            day > input$id_slider[1],
+           flow < input$id_slider2[2],
+           flow > input$id_slider2[1],
            extreme_type == input$my_radio)
   })
   
@@ -60,6 +69,7 @@ server <- function(input, output) {
     ggplot(aes(month)) + 
     geom_histogram()
   })
+  
   
   output$id_table <- DT::renderDataTable({
     flow_sample_filtered()

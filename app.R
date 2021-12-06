@@ -19,6 +19,7 @@ ui <- dashboardPage( skin = "black",
               h2("Flow Sample Data"),
               tags$br(),
               h4("Purpose: Modify and Explore Flow Sample Data"),
+              tags$br(),
               h4("This is an app that helps you explore the Flow Sample data set from Datateachr. 
                  This app includes a histogram that filters the count over each season by day, year, and by extreme type. "),
               tags$br(),

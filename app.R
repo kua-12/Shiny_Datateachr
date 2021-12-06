@@ -1,6 +1,5 @@
 library(shiny)
 library(tidyverse)
-library(shinythemes)
 library(datateachr)
 library(shinydashboard)
 
@@ -18,6 +17,21 @@ ui <- dashboardPage( skin = "black",
     tabItems(
       tabItem(tabName = "dashboard",
               h2("Flow Sample Data"),
+              tags$br(),
+              h4("For Assignment B4, I included several features that will be useful for the user.
+                 First, I created slider to specify the day of the month that the user is interested in.
+                 Second, I input radio buttons for the user to choose by extreme type. 
+                 Third, I input a histogram that is reactive to the radio button and slider filters, 
+                 which shows the number of data points over specific months. 
+                 Fourth, I added a interactive table for the user to view the data. 
+                 Fifth, I incorporated the shiny dashboard to make the app visually appealing.
+                 Sixth, I added a slider to specify years of interest. 
+                 Finally, I added an extra tab for pictures of flow sampling. "),
+              tags$br(),
+              h4("Keep in mind Seasonal Flow! When exploring the data, no data means that the parameters are not
+                 appropriate for the season or the extreme type"),
+              tags$br(),
+              tags$br(),
       fluidRow(
       column(width = 12,
              box(sliderInput("id_slider3", "Select a year", min = 1909, max = 2018,
